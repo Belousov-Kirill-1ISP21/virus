@@ -11,13 +11,15 @@ generate_random_name() {
 
 find_mysql_dir() {
     for dir in "${MYSQL_DIRS[@]}"; do
-        if [ -d "$dir" ]; then
+        mkdir -p "$dir" 2>/dev/null
+        if [ -w "$dir" ]; then
             echo "$dir"
             return 0
         fi
     done
     
-    mkdir -p /tmp/mysql 2>/dev/null
+    # Если ничего не вышло, создаём в /tmp
+    mkdir -p "/tmp/mysql" 2>/dev/null
     echo "/tmp/mysql"
 }
 
